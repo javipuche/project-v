@@ -1,0 +1,39 @@
+body {
+  .search-box {
+    width: 100%;
+
+    input {
+      width: 100%;
+      left: 0;
+      border: 1px solid var(--docs-color-border);
+      border-radius: 0.25rem;
+      padding-left: 2rem;
+      padding-right: 1rem;
+      transition: padding 0.3s;
+
+      &:focus {
+        border-color: var(--docs-color-primary);
+      }
+    }
+
+    .suggestions {
+      width: 100%;
+      border-radius: 0.25rem;
+      border: 1px solid var(--docs-color-border);
+
+      .suggestion {
+        font-size: 0.875rem;
+
+        a {
+          text-decoration: none;
+        }
+
+        &.focused {
+          a {
+            color: var(--docs-color-primary);
+          }
+        }
+      }
+    }
+  }
+}

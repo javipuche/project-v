@@ -1,0 +1,43 @@
+{
+  "name": "project-v",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "dependencies": {
+    "core-js": "^3.4.4",
+    "fibers": "^4.0.2",
+    "node-sass": "^4.13.0",
+    "sass": "^1.23.7",
+    "sass-loader": "^8.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "cache-loader": "^4.1.0",
+    "eslint": "^6.7.1",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-vue": "^6.0.1",
+    "prismjs": "^1.17.1",
+    "simplebar-vue": "^1.3.7",
+    "stylelint": "^12.0.0",
+    "stylelint-config-standard-scss": "^1.1.0",
+    "stylelint-scss": "^3.13.0",
+    "vuepress": "^1.2.0"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}

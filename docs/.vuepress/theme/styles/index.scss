@@ -1,0 +1,129 @@
+@import "core/core";
+@import "vuepress";
+
+:root {
+  // Typography
+  --docs-font-family-primary: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --docs-font-size-body: 1rem;
+
+  // Colors
+  --docs-color-primary: #5b3cc4;
+  --docs-color-border: #cdd2da;
+  --docs-color-text: #5b5777;
+  --docs-color-overlay: #{rgba(#000, 0.3)};
+  --docs-navbar-background: #fff;
+  --docs-page-background: #fdfdfd;
+  --docs-sidebar-background: #f5f7fb;
+
+  // Spaces
+  --docs-gutter: 1rem;
+
+  // Navbar
+  --docs-navbar-height: 3rem;
+
+  // Code
+  --docs-code-text-color: var(--docs-color-text);
+  --docs-code-background-color: var(--docs-sidebar-background);
+  --docs-code-color-primary: var(--docs-color-primary);
+  --docs-code-font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  --docs-code-highlighted: #e8ebef;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--docs-font-family-primary);
+  font-size: var(--docs-font-size-body);
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  max-width: 100vw;
+  overflow: hidden auto;
+  margin: 0;
+  color: var(--docs-color-text);
+}
+
+.simplebar-scrollbar {
+  &::before {
+    background: var(--docs-color-border);
+  }
+}
+
+@mixin encapsulated ($tag) {
+  > #{$tag}:not(.preview),
+  > *:not(.preview) #{$tag} {
+    @content;
+  }
+}
+
+.theme-default-content {
+  @include encapsulated ('code') {
+    color: var(--docs-color-primary);
+    padding: 0.25rem 0.5rem;
+    margin: 0;
+    font: 0.875em/1 var(--docs-code-font-family);
+    background-color: var(--docs-code-background-color);
+    border-radius: 0.25rem;
+    display: inline-block;
+  }
+
+  @include encapsulated ('pre, pre[class*="language-"]') {
+    line-height: 2rem;
+    padding: 1.25rem 1.5rem;
+    margin: 0.85rem 0;
+    background-color: var(--docs-code-background-color);
+    border-radius: 0.25rem;
+    overflow: auto;
+
+    code {
+      display: initial;
+      background-color: transparent;
+      border-radius: 0;
+      color: var(--docs-code-text-color);
+    }
+  }
+
+  @include encapsulated ('div[class*="language-"]') {
+    position: relative;
+    background-color: var(--docs-code-background-color);
+    border-radius: 0.25rem;
+
+    .token.operator,
+    .token.entity,
+    .token.url,
+    .language-css .token.string,
+    .style .token.string {
+      background-color: transparent;
+    }
+
+    .highlight-lines {
+      user-select: none;
+      padding-top: 1.3rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      line-height: 2rem;
+
+      .highlighted {
+        background-color: var(--docs-code-highlighted);
+        border-left: 0.125rem solid var(--docs-color-primary);
+      }
+    }
+
+    pre,
+    pre[class*="language-"] {
+      background: transparent;
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
