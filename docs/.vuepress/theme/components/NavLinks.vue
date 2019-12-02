@@ -110,6 +110,10 @@
     display: flex;
 
     &:not(&--mobile) {
+      @include breakpoint($breakpoint-layout down) {
+        display: none;
+      }
+
       #{$this} {
         &__item {
           &:not(:last-child) {
@@ -121,6 +125,11 @@
 
     &--mobile {
       flex-direction: column;
+      margin-top: 2rem;
+
+      @include breakpoint($breakpoint-layout) {
+        display: none;
+      }
 
       #{$this} {
         &__item {

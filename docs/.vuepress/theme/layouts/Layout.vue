@@ -168,6 +168,7 @@
     &__page {
       padding: var(--docs-gutter);
       background-color: var(--docs-page-background);
+      min-width: 1px;
 
       @include breakpoint(1200px) {
         --docs-gutter: 4rem;
