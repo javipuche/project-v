@@ -20,6 +20,11 @@ module.exports = (options, ctx) => ({
     plugins: [
         ['@vuepress/active-header-links', options.activeHeaderLinks],
         '@vuepress/search',
-        '@vuepress/plugin-nprogress'
+        '@vuepress/plugin-nprogress',
+        ['container', {
+            type: 'theorem',
+            before: info => `<details class="custom-block details">${info ? `<summary>${info}</summary>` : ''}\n`,
+            after: () => '</details>\n'
+        }]
     ]
 })

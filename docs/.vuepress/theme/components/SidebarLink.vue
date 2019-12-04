@@ -113,6 +113,7 @@
 
   .sidebar-sub-header {
     padding-left: 1rem;
+    font-size: 0.9375em;
   }
 
   .sidebar-heading {
@@ -125,10 +126,6 @@
     margin-bottom: 1rem;
     display: flex;
     align-items: baseline;
-
-    &.open {
-      color: var(--docs-color-primary);
-    }
   }
 
   .arrow {

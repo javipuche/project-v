@@ -1,46 +1,48 @@
 <template>
     <main class="page">
-        <slot name="top" />
+        <div class="page__content">
+            <slot name="top" />
 
-        <Content class="page__content theme-default-content" />
+            <Content class="theme-default-content" />
 
-        <footer class="page-edit">
-            <div
-                v-if="editLink"
-                class="edit-link"
-            >
-                <a
-                    :href="editLink"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >{{ editLinkText }}</a>
-                <OutboundLink />
+            <footer class="page-edit">
+                <div
+                    v-if="editLink"
+                    class="edit-link"
+                >
+                    <a
+                        :href="editLink"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >{{ editLinkText }}</a>
+                    <OutboundLink />
+                </div>
+
+                <div
+                    v-if="lastUpdated"
+                    class="last-updated"
+                >
+                    <span class="prefix">{{ lastUpdatedText }}: </span>
+                    <span class="time">{{ lastUpdated }}</span>
+                </div>
+            </footer>
+
+            <div v-if="prev || next" class="page-nav">
+                <p class="page-nav__inner">
+                    <span v-if="prev" class="page-nav__prev">
+                        <span class="page-nav__icon">←</span>
+                        <router-link v-if="prev" :to="prev.path">{{ prev.title || prev.path }}</router-link>
+                    </span>
+
+                    <span v-if="next" class="page-nav__next">
+                        <router-link v-if="next" :to="next.path">{{ next.title || next.path }}</router-link>
+                        <span class="page-nav__icon">→</span>
+                    </span>
+                </p>
             </div>
 
-            <div
-                v-if="lastUpdated"
-                class="last-updated"
-            >
-                <span class="prefix">{{ lastUpdatedText }}: </span>
-                <span class="time">{{ lastUpdated }}</span>
-            </div>
-        </footer>
-
-        <div v-if="prev || next" class="page-nav">
-            <p class="page-nav__inner">
-                <span v-if="prev" class="page-nav__prev">
-                    <span class="page-nav__icon">←</span>
-                    <router-link v-if="prev" :to="prev.path">{{ prev.title || prev.path }}</router-link>
-                </span>
-
-                <span v-if="next" class="page-nav__next">
-                    <router-link v-if="next" :to="next.path">{{ next.title || next.path }}</router-link>
-                    <span class="page-nav__icon">→</span>
-                </span>
-            </p>
+            <slot name="bottom" />
         </div>
-
-        <slot name="bottom" />
     </main>
 </template>
 
@@ -182,6 +184,13 @@
 </script>
 
 <style lang="scss" scoped>
+  .page {
+    &__content {
+      max-width: var(--docs-container-width);
+      margin: 0 auto;
+    }
+  }
+
   .page-nav {
     margin-top: 4rem;
 

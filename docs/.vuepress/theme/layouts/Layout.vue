@@ -94,6 +94,7 @@
         mounted () {
             this.$router.afterEach(() => {
                 this.isSidebarOpen = false
+                this.$store.commit('overlay/toggleOverlay', false)
             })
         },
 
@@ -174,7 +175,11 @@
       background-color: var(--docs-page-background);
       min-width: 1px;
 
-      @include breakpoint(1200px) {
+      @include breakpoint($breakpoint-layout down) {
+        min-height: calc(100vh - var(--docs-navbar-height));
+      }
+
+      @include breakpoint($breakpoint-layout) {
         --docs-gutter: 4rem;
       }
     }

@@ -1,8 +1,18 @@
 const { join, resolve } = require('path')
 
 module.exports = {
-    title: 'Avoris Travel',
-    description: 'Just playing around',
+    locales: {
+        '/': {
+            lang: 'en-EN',
+            title: 'Avoris Travel',
+            description: 'Vue componentes for Avoris Travel Apps'
+        },
+        '/es/': {
+            lang: 'es-ES',
+            title: 'Avoris Travel',
+            description: 'Componentes de Vue para las aplicaciones de Avoris Travel'
+        }
+    },
     plugins: [
         [
             '@vuepress/register-components',
@@ -25,64 +35,74 @@ module.exports = {
         }
     },
     themeConfig: {
-        // logo: '/assets/img/avoris.svg',
-        activeHeaderLinks: false,
-        smoothScroll: true,
-        nav: [{
-            text: 'Home',
-            link: '/'
-        },
-        {
-            text: 'Guide',
-            link: 'https://aaa.com'
-        },
-        {
-            text: 'External',
-            link: 'https://google.com'
-        },
-        {
-            text: 'Languages',
-            ariaLabel: 'Language Menu',
-            items: [
-                { text: 'Chinese', link: '/language/chinese/' },
-                { text: 'Japanese', link: '/language/japanese/' }
-            ]
-        },
-        {
-            text: 'Languages',
-            items: [
-                { text: 'Group1', items: [{ text: 'Chinese', link: '/language/chinese/' }, { text: 'Japanese', link: '/language/japanese/' }] },
-                { text: 'Group2', items: [{ text: 'Japanese', link: '/language/japanese/' }, { text: 'Chinese', link: '/language/chinese/' }] }
-            ]
-        }
-        ],
-        sidebar: [
-            {
-                title: 'Markdown Config',
-                path: '/test1',
-                collapsable: false,
-                sidebarDepth: 2,
-                children: [
-                    '/test1',
-                    '/test2'
-                ]
+        logo: '/assets/img/avoris.svg',
+        locales: {
+            '/': {
+                selectText: 'Languages',
+                label: 'English',
+                ariaLabel: 'Languages',
+                editLinkText: 'Edit this page on GitHub',
+                serviceWorker: {
+                    updatePopup: {
+                        message: 'New content is available.',
+                        buttonText: 'Refresh'
+                    }
+                }
             },
-            {
-                title: 'Group 2',
-                sidebarDepth: 2,
-                children: [
-                    '/test1',
-                    '/test2'
-                ]
-            },
-            {
-                title: 'Group 3',
-                sidebarDepth: 2,
-                children: [
-                    '/test1',
-                    '/test2'
+            '/es/': {
+                selectText: 'Idiomas',
+                label: 'Español',
+                ariaLabel: 'Idiomas',
+                editLinkText: 'Editar esta página en GitHub',
+                serviceWorker: {
+                    updatePopup: {
+                        message: 'Hay disponible nuevo contenido.',
+                        buttonText: 'Actualizar'
+                    }
+                },
+                nav: [
+                    {
+                        text: 'Home',
+                        link: '/es/'
+                    },
+                    {
+                        text: 'Guide',
+                        link: 'https://aaa.com'
+                    },
+                    {
+                        text: 'External',
+                        link: 'https://google.com'
+                    }
+                ],
+                sidebar: [
+                    {
+                        title: 'Markdown Config',
+                        path: '/es/test1',
+                        collapsable: false,
+                        sidebarDepth: 2,
+                        children: [
+                            '/es/test1',
+                            '/es/test2'
+                        ]
+                    },
+                    {
+                        title: 'Group 2',
+                        sidebarDepth: 2,
+                        children: [
+                            '/es/test1',
+                            '/es/test2'
+                        ]
+                    },
+                    {
+                        title: 'Group 3',
+                        sidebarDepth: 2,
+                        children: [
+                            '/es/test1',
+                            '/es/test2'
+                        ]
+                    }
                 ]
             }
-        ]
+        }
     }
 }

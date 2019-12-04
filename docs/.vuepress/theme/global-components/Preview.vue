@@ -55,6 +55,9 @@
                 copied: false
             }
         },
+        mounted () {
+            this.escapePress()
+        },
         methods: {
             toggleCode () {
                 this.codeIsVisible = !this.codeIsVisible
@@ -82,6 +85,9 @@
             toggleCopied () {
                 this.copied = !this.copied
                 setTimeout(() => { this.copied = !this.copied }, 1000)
+            },
+            escapePress () {
+                document.addEventListener('keydown', (e) => e.keyCode === 27 && this.demoIsFullscreen && this.toggleDemo())
             }
         }
     }
