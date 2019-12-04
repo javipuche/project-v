@@ -1,24 +1,24 @@
-# Directory Structure
+# a
 
 VuePress follows the principle of **"Convention is better than configuration"**, the recommended document structure is as follows:
 
-## Directory Structure
+## b
 
 VuePress follows the principle of **"Convention is better than configuration"**, the recommended document structure is as follows:
 
-### Directory Structure
+### c
 
 VuePress follows the principle of **"Convention is better than configuration"**, the recommended document structure is as follows:
 
-#### Directory Structure
+#### d
 
 VuePress follows the principle of **"Convention is better than configuration"**, the recommended document structure is as follows:
 
-##### Directory Structure
+##### e
 
 VuePress follows the principle of **"Convention is better than configuration"**, the recommended document structure is as follows:
 
-###### Directory Structure
+###### f
 
 VuePress follows the principle of **"Convention is better than configuration"**, the recommended document structure is as follows:
 
@@ -27,10 +27,8 @@ VuePress follows the principle of **"Convention is better than configuration"**,
     <HelloWorld/>
   </template>
 
-  <<< @/docs/examples/HelloWorld/HelloWorld.vue{2}
+  <<< @/docs/examples/HelloWorld/HelloWorld.vue
 </Preview>
-
-# Dillinger
 
 ```html
 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor facilis tempore quidem. Repellendus impedit a assumenda laudantium, sed quis temporibus ea! Minus sequi tempore voluptatum nam fuga ipsa, odio veritatis eveniet quisquam aliquam nostrum quae similique ratione culpa molestiae quidem reprehenderit provident praesentium esse. Obcaecati tenetur eum in, tempore, iusto mollitia nemo recusandae alias molestiae commodi hic aliquam suscipit est totam dignissimos cupiditate! Saepe, ex aut. Porro facilis minima minus et expedita veritatis quisquam neque vero nostrum enim officiis quibusdam placeat veniam suscipit assumenda eum pariatur id, aliquid alias eligendi sunt quis ullam aspernatur exercitationem? Dolorum esse assumenda earum nisi voluptatum? Inventore culpa ab corrupti nesciunt, laborum praesentium, fuga quos perspiciatis odit sit magni officiis aliquid dicta est. Id modi commodi quam voluptas obcaecati quidem! Excepturi sunt ad non architecto quia. Ducimus obcaecati cupiditate adipisci laborum rerum hic saepe quidem ab fugiat architecto sint enim aut nisi, sunt excepturi. Corporis sequi tenetur dolor inventore vitae qui et, beatae voluptates hic doloremque. Atque inventore suscipit non maxime? Dolorem quis ipsam voluptas recusandae ipsa, ab aspernatur nisi illum excepturi repudiandae. Mollitia provident quod unde nemo doloribus obcaecati totam sapiente debitis vel consectetur vero dolorem quam doloremque aut iusto laudantium sit architecto voluptas magnam, veritatis fugiat. Aliquid, deserunt libero odio repudiandae aut incidunt est architecto modi praesentium dignissimos voluptate. Blanditiis vel sunt sint officia quod esse nihil quam, possimus ratione sit adipisci aperiam voluptatibus, alias dignissimos atque ex rem fuga nisi laborum voluptatem nemo distinctio iusto odit enim? Id similique voluptas in vero, autem tempore nisi, quo sint, harum voluptates voluptatem ducimus soluta illo quam dolorem incidunt tenetur. Eveniet architecto quo obcaecati aperiam quidem ex molestiae, aut, a alias ut quaerat similique quia magnam odio reprehenderit vero! Totam minima debitis repellat asperiores suscipit doloribus impedit sapiente quisquam facilis, ea in fuga reprehenderit quis?</p>
@@ -41,8 +39,6 @@ Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered H
   - Type some Markdown on the left
   - See HTML in the right
   - Magic
-
-# New Features!
 
 1. Import a HTML file and watch it magically convert to Markdown
 2. Drag and drop images (requires your Dropbox account be linked)
@@ -65,8 +61,6 @@ Markdown is a lightweight markup language based on the formatting conventions th
 
 This text you see here is *actually* written in Markdown! To get a feel for Markdown's syntax, type some text into the left window and watch the results in the right.
 
-### Tech
-
 Dillinger uses a number of open source projects to work properly:
 
 * [AngularJS] - HTML enhanced for web apps!
@@ -82,15 +76,11 @@ Dillinger uses a number of open source projects to work properly:
 And of course Dillinger itself is open source with a [public repository][dill]
  on GitHub.
 
-### Installation
-
 Dillinger requires [Node.js](https://nodejs.org/) v4+ to run.
 
 Install the dependencies and devDependencies and start the server.
 
 For production environments...
-
-### Plugins
 
 Dillinger is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
 
@@ -102,8 +92,6 @@ Dillinger is currently extended with the following plugins. Instructions on how 
 | OneDrive | [plugins/onedrive/README.md][PlOd] |
 | Medium | [plugins/medium/README.md][PlMe] |
 | Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
-
-### Development
 
 Want to contribute? Great!
 
@@ -118,13 +106,10 @@ Second Tab:
 
 (optional) Third:
 
-#### Building for source
-
 For production release:
 
 Generating pre-built zip archives for distribution:
 
-### Docker
 Dillinger is very easy to install and deploy in a Docker container.
 
 By default, the Docker will expose port 8080, so change this within the Dockerfile if necessary. When ready, simply use the Dockerfile to build the image.
@@ -135,21 +120,12 @@ Once done, run the Docker image and map the port to whatever you wish on your ho
 
 Verify the deployment by navigating to your server address in your preferred browser.
 
-#### Kubernetes + Google Cloud
-
 See [KUBERNETES.md](https://github.com/joemccann/dillinger/blob/master/KUBERNETES.md)
-
-
-### Todos
 
  - Write MORE Tests
  - Add Night Mode
 
-License
-----
-
 MIT
-
 
 **Free Software, Hell Yeah!**
 

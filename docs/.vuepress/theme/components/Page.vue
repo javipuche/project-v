@@ -27,32 +27,15 @@
         </footer>
 
         <div v-if="prev || next" class="page-nav">
-            <p class="inner">
-                <span
-                    v-if="prev"
-                    class="prev"
-                >
-                    ←
-                    <router-link
-                        v-if="prev"
-                        class="prev"
-                        :to="prev.path"
-                    >
-                        {{ prev.title || prev.path }}
-                    </router-link>
+            <p class="page-nav__inner">
+                <span v-if="prev" class="page-nav__prev">
+                    <span class="page-nav__icon">←</span>
+                    <router-link v-if="prev" :to="prev.path">{{ prev.title || prev.path }}</router-link>
                 </span>
 
-                <span
-                    v-if="next"
-                    class="next"
-                >
-                    <router-link
-                        v-if="next"
-                        :to="next.path"
-                    >
-                        {{ next.title || next.path }}
-                    </router-link>
-                    →
+                <span v-if="next" class="page-nav__next">
+                    <router-link v-if="next" :to="next.path">{{ next.title || next.path }}</router-link>
+                    <span class="page-nav__icon">→</span>
                 </span>
             </p>
         </div>
@@ -197,3 +180,42 @@
     }
 
 </script>
+
+<style lang="scss" scoped>
+  .page-nav {
+    margin-top: 4rem;
+
+    &__inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    &__prev,
+    &__next {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+
+      a {
+        text-decoration: none;
+        color: var(--docs-color-primary);
+
+        &:active,
+        &:focus,
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &__prev {
+      padding-right: 1rem;
+      margin-right: auto;
+    }
+
+    &__next {
+      padding-left: 1rem;
+      margin-left: auto;
+    }
+  }
+</style>

@@ -3,7 +3,7 @@
         v-if="items.length"
         class="sidebar-links"
     >
-        <li v-for="(item, i) in items" :key="i">
+        <li v-for="(item, i) in items" :key="i" class="sidebar-links__item">
             <SidebarGroup
                 v-if="item.type === 'group'"
                 :item="item"
@@ -16,6 +16,7 @@
                 v-else
                 :sidebar-depth="sidebarDepth"
                 :item="item"
+                class="sidebar-links__link"
             />
         </li>
     </ul>
@@ -84,3 +85,18 @@
         return -1
     }
 </script>
+
+<style lang="scss" scoped>
+  .sidebar-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+</style>

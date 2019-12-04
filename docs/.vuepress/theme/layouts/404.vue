@@ -2,7 +2,7 @@
     <div class="theme-container">
         <div class="theme-default-content">
             <h1>404</h1>
-            <blockquote>{{ getMsg() }}</blockquote>
+            {{ getMsg() }}
             <router-link to="/">
                 Take me home.
             </router-link>

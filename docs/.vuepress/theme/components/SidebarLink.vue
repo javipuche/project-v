@@ -92,3 +92,61 @@
         }, [text, h('OutboundLink')])
     }
 </script>
+
+<style lang="scss" scope>
+  .sidebar-link {
+    text-decoration: none;
+    color: currentColor;
+    padding: 0.5rem 2rem;
+    display: block;
+
+    &.active {
+      color: var(--docs-color-primary);
+      font-weight: 600;
+      border-left: 3px solid var(--docs-color-primary);
+    }
+
+    .sidebar-sub-header & {
+      border-left: 0;
+    }
+  }
+
+  .sidebar-sub-header {
+    padding-left: 1rem;
+  }
+
+  .sidebar-heading {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-decoration: none;
+    color: currentColor;
+    font-weight: 700;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: baseline;
+
+    &.open {
+      color: var(--docs-color-primary);
+    }
+  }
+
+  .arrow {
+    margin-left: 0.5rem;
+    flex-shrink: 0;
+    transform: translateY(-0.25rem);
+
+    &.down,
+    &.right {
+      &::before {
+        content: "";
+      }
+    }
+
+    &.right {
+      &::before {
+        @include triangle('bottom', currentColor, 0.25rem);
+      }
+    }
+  }
+</style>

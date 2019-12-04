@@ -57,7 +57,8 @@
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.08);
 
     @include breakpoint($breakpoint-layout) {
-      grid-template-columns: 1fr auto;
+      grid-template-columns: auto 1fr;
+      grid-gap: 3rem;
     }
 
     &__sidebar-button {
@@ -71,7 +72,6 @@
       align-items: center;
       text-decoration: none;
       color: currentColor;
-      overflow: hidden;
     }
 
     &__logo {
@@ -94,6 +94,7 @@
 
       @include breakpoint($breakpoint-layout) {
         display: block;
+        justify-self: end;
       }
     }
   }

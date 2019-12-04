@@ -5,10 +5,10 @@
                 <div class="sidebar__box">
                     <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia" />
                     <SearchBox v-else-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false" class="sidebar__search" />
-                    <NavLinks class="nav-links--mobile" />
+                    <NavLinks class="nav-links--mobile" mobile />
                     <slot name="top" />
                 </div>
-                <div class="sidebar__box">
+                <div class="sidebar__box sidebar__box--not-padding">
                     <SidebarLinks :depth="0" :items="items" />
                     <slot name="bottom" />
                 </div>
@@ -63,6 +63,11 @@
 
     &__box {
       padding: 2rem var(--docs-gutter);
+
+      &--not-padding {
+        padding-left: 0;
+        padding-right: 0;
+      }
 
       &:not(:last-child) {
         border-bottom: 1px solid var(--docs-color-border);

@@ -1,7 +1,7 @@
 <template>
     <div
         class="layout"
-        :class="pageClasses"
+        :class="[...pageClasses, ...{ 'layout--lock': overlayIsOpen }]"
         @touchstart="onTouchStart"
         @touchend="onTouchEnd"
     >
@@ -40,6 +40,9 @@
         },
 
         computed: {
+            overlayIsOpen () {
+                return this.$store.state.overlay.isOpen
+            },
             shouldShowNavbar () {
                 const { themeConfig } = this.$site
                 const { frontmatter } = this.$page
@@ -97,6 +100,7 @@
         methods: {
             toggleSidebar (to) {
                 this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
+                this.$store.commit('overlay/toggleOverlay', this.isSidebarOpen)
             },
 
             // side swipe
@@ -187,6 +191,12 @@
           }
         }
       }
+    }
+
+    &--lock {
+      overflow: hidden;
+      max-width: 100vw;
+      max-height: 100vh;
     }
   }
 </style>

@@ -2,7 +2,7 @@
     <nav v-if="userLinks.length || repoLink" class="nav-links">
         <!-- user links -->
         <div v-for="item in userLinks" :key="item.link" class="nav-links__item">
-            <DropdownLink v-if="item.type === 'links'" :item="item" />
+            <DropdownLink v-if="item.type === 'links'" :item="item" :mobile="mobile" />
             <NavLink v-else :item="item" />
         </div>
 
@@ -27,7 +27,12 @@
 
     export default {
         components: { NavLink, DropdownLink },
-
+        props: {
+            mobile: {
+                type: Boolean,
+                default: false
+            }
+        },
         computed: {
             userNav () {
                 return this.$themeLocaleConfig.nav || this.$site.themeConfig.nav || []
@@ -110,6 +115,8 @@
     display: flex;
 
     &:not(&--mobile) {
+      align-items: center;
+
       @include breakpoint($breakpoint-layout down) {
         display: none;
       }

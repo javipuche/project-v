@@ -26,13 +26,15 @@ module.exports = {
     },
     themeConfig: {
         // logo: '/assets/img/avoris.svg',
+        activeHeaderLinks: false,
+        smoothScroll: true,
         nav: [{
             text: 'Home',
             link: '/'
         },
         {
             text: 'Guide',
-            link: '/'
+            link: 'https://aaa.com'
         },
         {
             text: 'External',
@@ -45,23 +47,42 @@ module.exports = {
                 { text: 'Chinese', link: '/language/chinese/' },
                 { text: 'Japanese', link: '/language/japanese/' }
             ]
-        }
-        ],
-        sidebar: [{
-            title: 'Group 1', // required
-            path: '/', // optional, which should be a absolute path.
-            collapsable: false, // optional, defaults to true
-            sidebarDepth: 1, // optional, defaults to 1
-            children: [
-                '/'
-            ]
         },
         {
-            title: 'Group 2',
-            children: [
-                '/'
+            text: 'Languages',
+            items: [
+                { text: 'Group1', items: [{ text: 'Chinese', link: '/language/chinese/' }, { text: 'Japanese', link: '/language/japanese/' }] },
+                { text: 'Group2', items: [{ text: 'Japanese', link: '/language/japanese/' }, { text: 'Chinese', link: '/language/chinese/' }] }
             ]
         }
+        ],
+        sidebar: [
+            {
+                title: 'Markdown Config',
+                path: '/test1',
+                collapsable: false,
+                sidebarDepth: 2,
+                children: [
+                    '/test1',
+                    '/test2'
+                ]
+            },
+            {
+                title: 'Group 2',
+                sidebarDepth: 2,
+                children: [
+                    '/test1',
+                    '/test2'
+                ]
+            },
+            {
+                title: 'Group 3',
+                sidebarDepth: 2,
+                children: [
+                    '/test1',
+                    '/test2'
+                ]
+            }
         ]
     }
 }
