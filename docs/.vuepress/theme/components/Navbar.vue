@@ -41,6 +41,8 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "../styles/core/core";
+
   .navbar {
     position: sticky;
     z-index: 90;

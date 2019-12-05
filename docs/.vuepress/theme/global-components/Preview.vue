@@ -1,6 +1,14 @@
 <template>
     <div class="preview">
         <div class="preview__actions">
+            <select class="preview__action preview__action--theme" @change="selectTheme($event)">
+                <option value="muchoviaje">
+                    Muchoviaje
+                </option>
+                <option value="iberojet">
+                    Iberojet
+                </option>
+            </select>
             <button v-show="codeIsVisible" class="preview__action" @click.prevent="copyCode">
                 <span v-show="copied" class="preview__copied">
                     Copied to Clipboard!
@@ -59,6 +67,9 @@
             this.escapePress()
         },
         methods: {
+            selectTheme (event) {
+                console.log(event.target.value)
+            },
             toggleCode () {
                 this.codeIsVisible = !this.codeIsVisible
             },
@@ -132,6 +143,11 @@
         box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.08);
         background-color: var(--docs-color-primary);
         fill: #fff;
+      }
+
+      &--theme {
+        justify-self: flex-start;
+        margin-right: auto;
       }
     }
 

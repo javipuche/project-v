@@ -1,0 +1,96 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+p,
+pre,
+dl,
+dd,
+ol,
+ul,
+figure,
+hr,
+fieldset,
+legend,
+button,
+input,
+select,
+textarea {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+dl,
+dd,
+ul,
+ol {
+  list-style: none;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace;
+  font-size: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+picture {
+  display: block;
+}
+
+img {
+  object-fit: cover;
+  border-style: none;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+fieldset {
+  min-width: 0;
+  border: 0;
+}

@@ -1,7 +1,7 @@
 <template>
     <div
         class="layout"
-        :class="[...pageClasses, ...{ 'layout--lock': overlayIsOpen }]"
+        :class="[...pageClasses, ...{ 'layout--lock': overlayIsOpen, 'layout--home': $page.frontmatter.home }]"
         @touchstart="onTouchStart"
         @touchend="onTouchEnd"
     >
@@ -9,7 +9,7 @@
 
         <div class="layout__sidebar-mask" @click="toggleSidebar(false)"></div>
 
-        <Sidebar class="layout__sidebar" :items="sidebarItems" @toggle-sidebar="toggleSidebar">
+        <Sidebar v-if="!$page.frontmatter.home" class="layout__sidebar" :items="sidebarItems" @toggle-sidebar="toggleSidebar">
             <slot slot="top" name="sidebar-top" />
             <slot slot="bottom" name="sidebar-bottom" />
         </Sidebar>
@@ -35,7 +35,8 @@
 
         data () {
             return {
-                isSidebarOpen: false
+                isSidebarOpen: false,
+                selectedTheme: 'themes-iberojet-Default'
             }
         },
 
@@ -128,6 +129,8 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "../styles/core/core";
+
   .layout {
     $this: &;
 
@@ -195,6 +198,12 @@
             }
           }
         }
+      }
+    }
+
+    &--home {
+      @include breakpoint($breakpoint-layout) {
+        grid-template-columns: 1fr;
       }
     }
 

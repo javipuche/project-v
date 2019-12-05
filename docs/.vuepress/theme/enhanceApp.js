@@ -1,8 +1,12 @@
 import store from './store'
-import 'simplebar/dist/simplebar.min.css'
-import 'prismjs/themes/prism.css'
 import './styles/index.scss'
 
-export default ({ options }) => {
+export default ({ options, siteData }) => {
+    if (siteData.themeConfig.store) {
+        Object.keys(siteData.themeConfig.store).forEach(name => {
+            store.registerModule(name, siteData.themeConfig.store[name])
+        })
+    }
+
     Object.assign(options, { store })
 }

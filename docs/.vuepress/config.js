@@ -1,4 +1,5 @@
 const { join, resolve } = require('path')
+const store = require('../../src/store')
 
 module.exports = {
     locales: {
@@ -17,13 +18,13 @@ module.exports = {
         [
             '@vuepress/register-components',
             {
-                componentsDir: './src/components'
+                componentsDir: './src'
             }
         ]
     ],
     scss: {
         sassOptions: {
-            includePaths: [join(__dirname, 'theme/styles')]
+            includePaths: [join(__dirname, '../../src/assets/scss')]
         },
         prependData: '@import "core/core";'
     },
@@ -36,6 +37,7 @@ module.exports = {
     },
     themeConfig: {
         logo: '/assets/img/avoris.svg',
+        store: store,
         locales: {
             '/': {
                 selectText: 'Languages',
@@ -62,46 +64,26 @@ module.exports = {
                 },
                 nav: [
                     {
-                        text: 'Home',
+                        text: 'Inicio',
                         link: '/es/'
                     },
                     {
-                        text: 'Guide',
-                        link: 'https://aaa.com'
-                    },
-                    {
-                        text: 'External',
-                        link: 'https://google.com'
+                        text: 'Documentación',
+                        link: '/es/documentacion/'
                     }
                 ],
-                sidebar: [
-                    {
-                        title: 'Markdown Config',
-                        path: '/es/test1',
-                        collapsable: false,
-                        sidebarDepth: 2,
-                        children: [
-                            '/es/test1',
-                            '/es/test2'
-                        ]
-                    },
-                    {
-                        title: 'Group 2',
-                        sidebarDepth: 2,
-                        children: [
-                            '/es/test1',
-                            '/es/test2'
-                        ]
-                    },
-                    {
-                        title: 'Group 3',
-                        sidebarDepth: 2,
-                        children: [
-                            '/es/test1',
-                            '/es/test2'
-                        ]
-                    }
-                ]
+                sidebar: {
+                    '/es/documentacion/': [
+                        {
+                            title: 'Desarrollo',
+                            collapsable: false,
+                            sidebarDepth: 2,
+                            children: [
+                                '/es/documentacion/'
+                            ]
+                        }
+                    ]
+                }
             }
         }
     }

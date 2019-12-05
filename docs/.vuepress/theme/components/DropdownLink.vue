@@ -86,6 +86,8 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "../styles/core/core";
+
   .dropdown {
     $this: &;
 

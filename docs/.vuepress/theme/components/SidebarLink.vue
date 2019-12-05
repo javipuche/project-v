@@ -94,6 +94,8 @@
 </script>
 
 <style lang="scss" scope>
+  @import "../styles/core/core";
+
   .sidebar-link {
     text-decoration: none;
     color: currentColor;

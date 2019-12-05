@@ -1,0 +1,9 @@
+html {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-body);
+  line-height: 1;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

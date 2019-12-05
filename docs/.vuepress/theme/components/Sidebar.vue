@@ -52,6 +52,8 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "../styles/core/core";
+
   .sidebar {
     background-color: var(--docs-sidebar-background);
 
