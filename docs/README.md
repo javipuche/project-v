@@ -28,7 +28,7 @@ VuePress follows the principle of **"Convention is better than configuration"**,
 
 <Preview>
   <template slot="demo">
-    <HelloWorld/>
+    <AtHelloWorld/>
   </template>
 
   <<< @/docs/examples/HelloWorld/HelloWorld.vue

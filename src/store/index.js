@@ -1,5 +1,1 @@
-const AtCommons = require('./commons')
-
-module.exports = {
-    AtCommons
-}
+export { default as AtCommons } from '@store/commons'

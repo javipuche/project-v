@@ -1,12 +1,8 @@
 import store from './store'
 import './styles/index.scss'
+import Athos from '../../../src'
 
-export default ({ options, siteData }) => {
-    if (siteData.themeConfig.store) {
-        Object.keys(siteData.themeConfig.store).forEach(name => {
-            store.registerModule(name, siteData.themeConfig.store[name])
-        })
-    }
-
+export default ({ Vue, options }) => {
+    Vue.use(Athos, { store })
     Object.assign(options, { store })
 }

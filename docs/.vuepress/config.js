@@ -1,5 +1,4 @@
-const { join, resolve } = require('path')
-const store = require('../../src/store')
+const { resolve } = require('path')
 
 module.exports = {
     locales: {
@@ -14,30 +13,20 @@ module.exports = {
             description: 'Componentes de Vue para las aplicaciones de Avoris Travel'
         }
     },
-    plugins: [
-        [
-            '@vuepress/register-components',
-            {
-                componentsDir: './src'
-            }
-        ]
-    ],
-    scss: {
-        sassOptions: {
-            includePaths: [join(__dirname, '../../src/assets/scss')]
-        },
-        prependData: '@import "core/core";'
-    },
     configureWebpack: {
         resolve: {
             alias: {
-                '@': resolve(__dirname)
+                '@': resolve(__dirname),
+                '@components': resolve('src/components'),
+                '@layouts': resolve('src/layouts'),
+                '@pages': resolve('src/pages'),
+                '@utils': resolve('src/utils'),
+                '@store': resolve('src/store')
             }
         }
     },
     themeConfig: {
         logo: '/assets/img/avoris.svg',
-        store: store,
         locales: {
             '/': {
                 selectText: 'Languages',

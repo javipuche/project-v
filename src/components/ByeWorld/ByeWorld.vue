@@ -1,23 +1,22 @@
 <template>
-    <a href="#" class="hello">
-        Hello
+    <a href="#" class="bye">
+        bye
         <slot />
     </a>
 </template>
 
 <script>
     export default {
-        name: 'AtHelloWorld'
+        name: 'AtByeWorld'
     }
 </script>
 
 <style scoped lang="scss">
-  .hello {
-    color: lightcoral;
+  .bye {
+    color: red;
 
     &.bg {
       background-color: #ccc;
-      appearance: none;
     }
   }
 </style>
