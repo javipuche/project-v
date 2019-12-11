@@ -3,17 +3,35 @@ import commonjs from 'rollup-plugin-commonjs'
 import vue from 'rollup-plugin-vue' // Handle .vue SFC files
 import buble from 'rollup-plugin-buble' // Transpile/polyfill with reasonable browser support
 import resolve from 'rollup-plugin-node-resolve'
+import { terser } from 'rollup-plugin-terser'
 import alias from '@rollup/plugin-alias'
 import autoprefixer from 'autoprefixer'
 
 export default [
     {
         input: 'src/index.js', // Path relative to package.json
-        output: {
-            name: 'Athos',
-            exports: 'named'
-        },
+        output: [
+            {
+                name: 'athos',
+                exports: 'named',
+                file: 'dist/athos.umd.js',
+                format: 'umd'
+            },
+            {
+                name: 'athos',
+                exports: 'named',
+                file: 'dist/athos.esm.js',
+                format: 'es'
+            },
+            {
+                name: 'athos',
+                exports: 'named',
+                file: 'dist/athos.min.js',
+                format: 'iife'
+            }
+        ],
         plugins: [
+            resolve(),
             alias({
                 resolve: ['.vue', '.js', '.scss'],
                 entries: [
@@ -33,7 +51,7 @@ export default [
                 }
             }),
             buble(), // Transpile to ES5
-            resolve()
+            terser()
         ]
     }
 ]

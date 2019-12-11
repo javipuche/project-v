@@ -1,6 +1,6 @@
 {
-  "name": "test-project-f-2",
-  "version": "0.4.0",
+  "name": "test-project-f",
+  "version": "0.4.39",
   "main": "dist/athos.umd.js",
   "module": "dist/athos.esm.js",
   "unpkg": "dist/athos.min.js",
@@ -10,10 +10,7 @@
   "scripts": {
     "dev:docs": "vuepress dev docs",
     "build:docs": "vuepress build docs",
-    "build": "rimraf dist && npm run build:styles & npm run build:umd & npm run build:es & npm run build:unpkg",
-    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/athos.umd.js",
-    "build:es": "rollup --config build/rollup.config.js --format es --file dist/athos.esm.js",
-    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/athos.min.js",
+    "build": "rimraf dist && npm run build:styles && rollup --config build/rollup.config.js",
     "build:styles": "node-sass src/scss/styles.scss dist/css/athos.css --output-style=compressed && postcss dist/css/athos.css -o dist/css/athos.css --use autoprefixer --no-map"
   },
   "dependencies": {
@@ -43,6 +40,7 @@
     "rollup-plugin-css-only": "^1.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-terser": "^5.1.2",
     "rollup-plugin-vue": "^5.1.4",
     "sass": "^1.23.7",
     "sass-loader": "^8.0.0",
