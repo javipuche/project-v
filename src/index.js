@@ -4,22 +4,14 @@ import * as layouts from '@layouts'
 import * as pages from '@pages'
 import * as store from '@store'
 
-let isStoreRegistered = false
-
 const AthosStore = (appStore) => {
-    console.log('test')
-
     Object.keys(store).forEach(name => {
         appStore.registerModule(name, store[name])
     })
-
-    isStoreRegistered = true
 }
 
 const Athos = {
     install (Vue, options) {
-        // if (!isStoreRegistered) throw new Error('Please initialise plugin with a Vuex store.')
-
         for (const componentName in components) {
             const component = components[componentName]
             Vue.use(component)
@@ -47,6 +39,7 @@ export default Athos
 
 export { AthosStore }
 
-export * from '@components'
-export * from '@layouts'
-export * from '@pages'
+// TODO: Mirar como poder exportar los componentes individualmente sin que esten todos en el bundle final
+// export * from '@components'
+// export * from '@layouts'
+// export * from '@pages'

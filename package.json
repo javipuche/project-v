@@ -1,12 +1,9 @@
 {
   "name": "test-project-f",
-  "version": "0.4.39",
+  "version": "0.4.43",
   "main": "dist/athos.umd.js",
   "module": "dist/athos.esm.js",
   "unpkg": "dist/athos.min.js",
-  "browser": {
-    "./sfc": "src/athos.vue"
-  },
   "scripts": {
     "dev:docs": "vuepress dev docs",
     "build:docs": "vuepress build docs",
