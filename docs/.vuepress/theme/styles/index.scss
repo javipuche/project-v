@@ -293,3 +293,10 @@ div {
     margin-bottom: 0;
   }
 }
+
+.preview {
+  &__demo {
+    @import "@scss/styles";
+    @import "@scss/themes/iberojet";
+  }
+}

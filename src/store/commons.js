@@ -1,7 +1,7 @@
 export default {
     namespaced: true,
     state: {
-        theme: 'default'
+        theme: 'iberojet'
     },
     mutations: {},
     actions: {},

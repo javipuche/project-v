@@ -39,7 +39,8 @@ export default [
                     { find: '@layouts', replacement: path.resolve('src/layouts') },
                     { find: '@pages', replacement: path.resolve('src/pages') },
                     { find: '@utils', replacement: path.resolve('src/utils') },
-                    { find: '@store', replacement: path.resolve('src/store') }
+                    { find: '@store', replacement: path.resolve('src/store') },
+                    { find: '@mixins', replacement: path.resolve('src/mixins') }
                 ]
             }),
             commonjs(),

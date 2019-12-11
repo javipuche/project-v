@@ -63,12 +63,19 @@
                 copied: false
             }
         },
+        computed: {
+            themes () {
+                return this.$store.state.themes.themes
+            }
+        },
         mounted () {
             this.escapePress()
         },
         methods: {
             selectTheme (event) {
-                console.log(event.target.value)
+                if (event.target.value === 'iberojet') {
+                    return import('../../../../dist/css/test.css')
+                }
             },
             toggleCode () {
                 this.codeIsVisible = !this.codeIsVisible

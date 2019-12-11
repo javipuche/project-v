@@ -21,12 +21,17 @@ module.exports = {
                 '@layouts': resolve('src/layouts'),
                 '@pages': resolve('src/pages'),
                 '@utils': resolve('src/utils'),
-                '@store': resolve('src/store')
+                '@store': resolve('src/store'),
+                '@mixins': resolve('src/mixins'),
+                '@scss': resolve('src/scss')
             }
         }
     },
     themeConfig: {
         logo: '/assets/img/avoris.svg',
+        themes: {
+
+        },
         locales: {
             '/': {
                 selectText: 'Languages',
