@@ -1,7 +1,3 @@
-/* -----------------------------------------------------------------------------
- * PX TO EM
- */
-
 @function em($_value, $_baseline: $s-config-font-size-base) {
   @if unit($_value) == 'em' {
     @return $_value;

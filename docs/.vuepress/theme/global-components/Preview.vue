@@ -1,14 +1,22 @@
 <template>
     <div class="preview">
         <div class="preview__actions">
-            <select class="preview__action preview__action--theme" @change="selectTheme($event)">
-                <option value="muchoviaje">
-                    Muchoviaje
-                </option>
-                <option value="iberojet">
-                    Iberojet
-                </option>
-            </select>
+            <div class="preview__theme-box">
+                <div class="preview__theme">
+                    <div class="preview__theme-title">
+                        Theme
+                    </div>
+                    <select v-model="themeSelected" class="preview__theme-select" @change="selectTheme">
+                        <option v-for="theme in $store.state.themes.themes" :key="theme.name" :value="theme.name">
+                            {{ theme.name }}
+                        </option>
+                    </select>
+                    <span class="preview__theme-arrow"></span>
+                    <button class="preview__theme-btn" @click.prevent="selectGlobalTheme">
+                        ALL
+                    </button>
+                </div>
+            </div>
             <button v-show="codeIsVisible" class="preview__action" @click.prevent="copyCode">
                 <span v-show="copied" class="preview__copied">
                     Copied to Clipboard!
@@ -38,7 +46,7 @@
             </button>
         </div>
         <div class="preview__inner">
-            <div class="preview__demo" :class="{ 'is-active': demoIsFullscreen }">
+            <div class="preview__demo" :class="[{ 'is-active': demoIsFullscreen }, themeClass]">
                 <slot name="demo" />
                 <button v-show="demoIsFullscreen" class="preview__action preview__action--close" @click.prevent="toggleDemo">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -60,21 +68,37 @@
             return {
                 codeIsVisible: false,
                 demoIsFullscreen: false,
-                copied: false
+                copied: false,
+                themeSelected: 'Default',
+                themeClass: ''
             }
         },
         computed: {
-            themes () {
-                return this.$store.state.themes.themes
+            globalTheme () {
+                return this.$store.state.themes.currentTheme
+            }
+        },
+        watch: {
+            globalTheme (newTheme, oldTheme) {
+                this.themeClass = this.$store.getters['themes/getThemeByName'](newTheme).class
+                this.themeSelected = newTheme
             }
         },
         mounted () {
             this.escapePress()
+            this.setGlobalTheme()
         },
         methods: {
-            selectTheme (event) {
-                if (event.target.value === 'iberojet') {
-                    return import('../../../../dist/css/test.css')
+            selectTheme () {
+                this.themeClass = this.$store.getters['themes/getThemeByName'](this.themeSelected).class
+            },
+            selectGlobalTheme () {
+                this.$store.commit('themes/selectTheme', this.themeSelected)
+            },
+            setGlobalTheme () {
+                if (this.$store.state.themes.currentTheme) {
+                    this.themeSelected = this.$store.state.themes.currentTheme
+                    this.themeClass = this.$store.getters['themes/getThemeByName'](this.$store.state.themes.currentTheme).class
                 }
             },
             toggleCode () {
@@ -117,6 +141,7 @@
 
     &__actions {
       display: flex;
+      flex-wrap: wrap;
       justify-content: flex-end;
       margin-bottom: 0.5rem;
     }
@@ -151,10 +176,74 @@
         background-color: var(--docs-color-primary);
         fill: #fff;
       }
+    }
 
-      &--theme {
-        justify-self: flex-start;
-        margin-right: auto;
+    &__theme-box {
+      justify-self: flex-start;
+      align-self: flex-end;
+      margin-right: auto;
+      margin-left: 0;
+      font-size: 0.85em;
+      border: 1px solid #e9eef7;
+
+      @include breakpoint(s down) {
+        width: 100%;
+        order: 99;
+        margin-top: 0.5rem;
+      }
+    }
+
+    &__theme {
+      display: flex;
+      font-size: 0.8em;
+      color: #8a8a8a;
+
+      &-title {
+        color: var(--docs-color-primary);
+        padding: 0.5rem;
+        background-color: #e9eef7;
+      }
+
+      &-select {
+        border: 0;
+        appearance: none;
+        background-color: var(--docs-sidebar-background);
+        vertical-align: middle;
+        align-self: stretch;
+        font: inherit;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        outline: none;
+        color: currentColor;
+        flex-grow: 1;
+        cursor: pointer;
+      }
+
+      &-arrow {
+        background-color: var(--docs-sidebar-background);
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        padding-right: 0.5rem;
+
+        &::after {
+          @include triangle('bottom', currentColor, 0.25rem);
+
+          content: "";
+        }
+      }
+
+      &-btn {
+        all: unset;
+        background-color: #e9eef7;
+        padding: 0.5rem;
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &:hover {
+          background: var(--docs-color-primary);
+          color: #fff;
+        }
       }
     }
 

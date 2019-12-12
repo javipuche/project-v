@@ -1,16 +1,6 @@
-/* -----------------------------------------------------------------------------
- * CONFIG
- */
-
-/* -----------------------------------------------------------------------------
- * Font size base for functions, etc. (not document font size)
- */
+// Font size base for functions, etc. (not document font size)
 
 $s-config-font-size-base: 16px !default;
-
-/* -----------------------------------------------------------------------------
- * Mediaqueries
- */
 
 // Media type
 
@@ -33,21 +23,3 @@ $s-mq-breakpoints: (
   'xl': $s-mq-breakpoint-xl,
   '2xl': $s-mq-breakpoint-2xl
 ) !default;
-
-/* -----------------------------------------------------------------------------
- * Utilities
- */
-
-$s-align-enabled: false !default;
-$s-bg-colors-enabled: false !default;
-$s-colors-enabled: false !default;
-$s-display-enabled: false !default;
-$s-flex-enabled: false !default;
-$s-font-family-enabled: false !default;
-$s-font-sizes-enabled: true !default;
-$s-font-weight-enabled: false !default;
-$s-margin-enabled: false !default;
-$s-padding-enabled: false !default;
-$s-radiuses-enabled: false !default;
-$s-shadows-enabled: false !default;
-$s-text-transform-enabled: false !default;

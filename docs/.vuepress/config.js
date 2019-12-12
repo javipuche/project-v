@@ -1,4 +1,4 @@
-const { resolve } = require('path')
+const { resolve, join } = require('path')
 
 module.exports = {
     locales: {
@@ -17,6 +17,7 @@ module.exports = {
         resolve: {
             alias: {
                 '@': resolve(__dirname),
+                '@lib': resolve('src'),
                 '@components': resolve('src/components'),
                 '@layouts': resolve('src/layouts'),
                 '@pages': resolve('src/pages'),
@@ -27,11 +28,14 @@ module.exports = {
             }
         }
     },
+    scss: {
+        sassOptions: {
+            includePaths: [join(__dirname, '../../src/scss')]
+        },
+        prependData: '@import "core/core";'
+    },
     themeConfig: {
         logo: '/assets/img/avoris.svg',
-        themes: {
-
-        },
         locales: {
             '/': {
                 selectText: 'Languages',

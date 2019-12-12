@@ -297,6 +297,8 @@ div {
 .preview {
   &__demo {
     @import "@scss/styles";
-    @import "@scss/themes/iberojet";
   }
 }
+
+@import "@lib/scss/themes/iberojet.scss";
+@import "@lib/scss/themes/muchoviaje.scss";

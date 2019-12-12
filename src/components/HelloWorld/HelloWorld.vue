@@ -16,11 +16,11 @@
 
 <style lang="scss">
   .hello {
-    --color: grey;
+    --color: var(--color-primary);
   }
 </style>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
   .hello {
     color: var(--color);
   }

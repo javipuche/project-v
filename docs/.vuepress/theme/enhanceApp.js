@@ -1,9 +1,10 @@
-import store from './store'
-import './styles/index.scss'
-import Athos, { AthosStore } from '../../../src'
+import store from '@/theme/store'
+import '@/theme/styles/index.scss'
+import Athos, { AthosStore } from '@lib'
 
-export default ({ Vue, options }) => {
+export default ({ Vue, siteData, options }) => {
     Object.assign(options, { store })
     AthosStore(options.store)
+
     Vue.use(Athos)
 }

@@ -6,6 +6,7 @@ import resolve from 'rollup-plugin-node-resolve'
 import { terser } from 'rollup-plugin-terser'
 import alias from '@rollup/plugin-alias'
 import autoprefixer from 'autoprefixer'
+console.log(path.resolve('src/scss'))
 
 export default [
     {
@@ -47,6 +48,12 @@ export default [
             vue({
                 css: true, // Dynamically inject css as a <style> tag
                 style: {
+                    preprocessOptions: {
+                        scss: {
+                            includePaths: [path.resolve('src/scss')],
+                            data: '@import "core/core";'
+                        }
+                    },
                     postcssPlugins: [autoprefixer]
                 },
                 template: {
