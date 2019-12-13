@@ -10,7 +10,9 @@ asdasd asd ajf dfg sjdfi fsdhf sdjifsdfh vds fs dvhs vsv
     }"/> 
   </template>
 
-  <<< @/docs/examples/HelloWorld/HelloWorld.vue
+  ```vue
+  <HelloWorld />
+  ```
 </Preview>
 
 <Preview>
@@ -18,5 +20,7 @@ asdasd asd ajf dfg sjdfi fsdhf sdjifsdfh vds fs dvhs vsv
     <AtHelloWorld/> 
   </template>
 
-  <<< @/docs/examples/HelloWorld/HelloWorld.vue
+  ```vue
+  <HelloWorld />
+  ```
 </Preview>

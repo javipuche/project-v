@@ -2,13 +2,21 @@ import { use } from '@utils/plugins'
 import * as components from '@components'
 import * as layouts from '@layouts'
 import * as pages from '@pages'
-import * as store from '@store'
 
-const AthosStore = (appStore) => {
-    Object.keys(store).forEach(name => {
-        appStore.registerModule(name, store[name])
-    })
-}
+// TODO: Es necesario/correcto tener store en la librería?
+// import * as store from '@store'
+
+// const AthosStore = (appStore) => {
+//     Object.keys(store).forEach(name => {
+//         appStore.registerModule(name, store[name])
+//     })
+// }
+
+// if (typeof window !== 'undefined' && window.Vue) {
+//     window.AthosStore = AthosStore
+// }
+
+// export { AthosStore }
 
 const Athos = {
     install (Vue, options) {
@@ -31,13 +39,7 @@ const Athos = {
 
 use(Athos)
 
-if (typeof window !== 'undefined' && window.Vue) {
-    window.AthosStore = AthosStore
-}
-
 export default Athos
-
-export { AthosStore }
 
 // TODO: Mirar como poder exportar los componentes individualmente sin que esten todos en el bundle final
 // export * from '@components'

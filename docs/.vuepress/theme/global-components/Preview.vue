@@ -3,17 +3,23 @@
         <div class="preview__actions">
             <div v-if="$store.state.themes.themes.length" class="preview__theme-box">
                 <div class="preview__theme">
-                    <div class="preview__theme-title">
-                        Theme
-                    </div>
                     <select v-model="themeSelected" class="preview__theme-select" @change="selectTheme">
                         <option v-for="theme in $store.state.themes.themes" :key="theme.name" :value="theme.name">
                             {{ theme.name }}
                         </option>
                     </select>
                     <span class="preview__theme-arrow"></span>
-                    <button class="preview__theme-btn" @click.prevent="selectGlobalTheme">
-                        ALL
+                    <button v-show="showApplyBtn" class="preview__theme-btn" @click.prevent="selectGlobalTheme">
+                        <svg
+                            class="preview__theme-btn-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="19"
+                            height="18"
+                            viewBox="0 0 19 18"
+                        >
+                            <path fill="currentColor" d="M14.9142136,8.33333333 L21.9142136,8.33333333 L21.9142136,10.3333333 L14.9142136,10.3333333 L14.9142136,8.33333333 Z M9.91421356,3 L11.9142136,3 L11.9142136,21 L9.91421356,21 L9.91421356,3 Z M14.9142136,3 L21.9142136,3 L21.9142136,5 L14.9142136,5 L14.9142136,3 Z M5.12132034,12.0355339 L3,9.91421356 L4.41421356,8.5 L6.53553391,10.6213203 L7.94974747,12.0355339 L4.41421356,15.5710678 L3,14.1568542 L5.12132034,12.0355339 Z M14.9142136,13.6666667 L21.9142136,13.6666667 L21.9142136,15.6666667 L14.9142136,15.6666667 L14.9142136,13.6666667 Z M14.9142136,19 L21.9142136,19 L21.9142136,21 L14.9142136,21 L14.9142136,19 Z" transform="translate(-3 -3)" />
+                        </svg>
+                        <span class="preview__theme-btn-text">Aplicar a todo</span>
                     </button>
                 </div>
             </div>
@@ -70,7 +76,8 @@
                 demoIsFullscreen: false,
                 copied: false,
                 themeSelected: 'Default',
-                themeClass: ''
+                themeClass: '',
+                showApplyBtn: false
             }
         },
         computed: {
@@ -82,6 +89,7 @@
             globalTheme (newTheme, oldTheme) {
                 this.themeClass = this.$store.getters['themes/getThemeByName'](newTheme).class
                 this.themeSelected = newTheme
+                this.showApplyBtn = false
             }
         },
         mounted () {
@@ -91,9 +99,11 @@
         methods: {
             selectTheme () {
                 this.themeClass = this.$store.getters['themes/getThemeByName'](this.themeSelected).class
+                this.showApplyBtn = true
             },
             selectGlobalTheme () {
                 this.$store.commit('themes/selectTheme', this.themeSelected)
+                this.showApplyBtn = false
             },
             setGlobalTheme () {
                 if (this.$store.state.themes.currentTheme) {
@@ -183,8 +193,6 @@
       align-self: flex-end;
       margin-right: auto;
       margin-left: 0;
-      font-size: 0.85em;
-      border: 1px solid #e9eef7;
 
       @include breakpoint(s down) {
         width: 100%;
@@ -197,12 +205,6 @@
       display: flex;
       font-size: 0.8em;
       color: #8a8a8a;
-
-      &-title {
-        color: var(--docs-color-primary);
-        padding: 0.5rem;
-        background-color: #e9eef7;
-      }
 
       &-select {
         border: 0;
@@ -217,6 +219,9 @@
         color: currentColor;
         flex-grow: 1;
         cursor: pointer;
+        border-top-left-radius: 0.25rem;
+        border-bottom-left-radius: 0.25rem;
+        min-height: 2rem;
       }
 
       &-arrow {
@@ -225,6 +230,8 @@
         display: flex;
         align-items: center;
         padding-right: 0.5rem;
+        border-top-right-radius: 0.25rem;
+        border-bottom-right-radius: 0.25rem;
 
         &::after {
           @include triangle('bottom', currentColor, 0.25rem);
@@ -239,10 +246,22 @@
         padding: 0.5rem;
         cursor: pointer;
         transition: all 0.3s;
+        margin-left: 0.5rem;
+        display: flex;
+        align-items: center;
+        border-radius: 0.25rem;
 
         &:hover {
           background: var(--docs-color-primary);
           color: #fff;
+        }
+
+        &-icon {
+          width: 100%;
+          height: auto;
+          max-width: 1rem;
+          margin-right: 0.5rem;
+          opacity: 0.7;
         }
       }
     }

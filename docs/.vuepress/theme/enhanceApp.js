@@ -1,6 +1,6 @@
 import store from '@/theme/store'
 import '@/theme/styles/index.scss'
-import Athos, { AthosStore } from '@lib'
+import Athos from '@lib'
 
 export default ({ Vue, options }) => {
     Object.assign(options, { store })
@@ -11,6 +11,5 @@ export default ({ Vue, options }) => {
         { name: 'Muchoviaje', class: 't-muchoviaje' }
     ])
 
-    AthosStore(options.store)
     Vue.use(Athos)
 }
