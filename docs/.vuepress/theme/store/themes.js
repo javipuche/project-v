@@ -2,15 +2,14 @@ export default {
     namespaced: true,
     state: {
         currentTheme: '',
-        themes: [
-            { name: 'Default', class: '' },
-            { name: 'Iberojet', class: 't-iberojet' },
-            { name: 'Muchoviaje', class: 't-muchoviaje' }
-        ]
+        themes: []
     },
     mutations: {
         selectTheme (state, selectedTheme) {
             state.currentTheme = selectedTheme
+        },
+        setThemes (state, value) {
+            state.themes = value
         }
     },
     actions: {},

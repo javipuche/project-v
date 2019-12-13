@@ -1,7 +1,7 @@
 <template>
     <div class="preview">
         <div class="preview__actions">
-            <div class="preview__theme-box">
+            <div v-if="$store.state.themes.themes.length" class="preview__theme-box">
                 <div class="preview__theme">
                     <div class="preview__theme-title">
                         Theme
