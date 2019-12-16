@@ -31,7 +31,9 @@ VuePress follows the principle of **"Convention is better than configuration"**,
     <AtHelloWorld/>
   </template>
 
-  <<< @/docs/examples/HelloWorld/HelloWorld.vue
+  ```vue
+  <HelloWorld/>
+  ```
 </Preview>
 
 ```html
