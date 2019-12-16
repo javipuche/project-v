@@ -10,7 +10,8 @@
     "build": "rimraf dist && npm run build:styles && npm run build:styleThemes && npm run autoprefixer && rollup --config build/rollup.config.js",
     "build:styles": "node-sass --output-style compressed src/scss/styles.scss dist/css/athos.css",
     "build:styleThemes": "node-sass --output-style compressed -o dist/css/themes src/scss/themes",
-    "autoprefixer": "postcss dist/css --base dist/css --dir dist/css --use autoprefixer --no-map"
+    "autoprefixer": "postcss dist/css --base dist/css --dir dist/css --use autoprefixer --no-map",
+    "linter": "eslint 'src/**/*.{js,vue}' && stylelint 'src/**/*.{scss,vue}'"
   },
   "dependencies": {
     "vuex": "^3.1.2"
