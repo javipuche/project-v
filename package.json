@@ -7,7 +7,7 @@
   "scripts": {
     "dev:docs": "vuepress dev docs",
     "build:docs": "vuepress build docs",
-    "build": "rimraf dist && npm run build:styles && npm run build:styleThemes && npm run autoprefixer && rollup --config build/rollup.config.js",
+    "build": "npm run linter && rimraf dist && npm run build:styles && npm run build:styleThemes && npm run autoprefixer && rollup --config build/rollup.config.js",
     "build:styles": "node-sass --output-style compressed src/scss/styles.scss dist/css/athos.css",
     "build:styleThemes": "node-sass --output-style compressed -o dist/css/themes src/scss/themes",
     "autoprefixer": "postcss dist/css --base dist/css --dir dist/css --use autoprefixer --no-map",
