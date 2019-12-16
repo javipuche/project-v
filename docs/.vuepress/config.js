@@ -1,6 +1,7 @@
 const { resolve, join } = require('path')
 
 module.exports = {
+    dest: resolve('docs/dist'),
     locales: {
         '/': {
             lang: 'en-EN',
